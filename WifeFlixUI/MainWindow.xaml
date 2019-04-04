@@ -4,9 +4,94 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WifeFlixUI"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Loaded="Window_Loaded"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="WifeFlix" Height="600" Width="324.957" WindowStyle="ToolWindow" Background="#FF232121">
+    <Border Padding="10">
+
+        <StackPanel>
+            <TextBlock Text="WIFEFLIX" Foreground="#FFF70000" FontWeight="Bold" FontSize="24" TextAlignment="Center" Margin="0 , 0, 0,20"/>
+
+            <!--Add Series-->
+            <Grid Margin="0 , 0, 0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 , 0, 10,0">
+                    <TextBox Name="AddSerieBox" Foreground="Black" FontSize="14"/>
+                    <TextBlock Text="Enter your Series here!" Foreground="White" FontSize="8"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <Button Name="CreateNewSerieBtn" Content="Create New Serie" Click="CreateNewSerieBtn_Click" />
+                </StackPanel>
+            </Grid>
+
+
+
+            <TextBlock Margin="0 , 0, 0,10" Text="My Series____________________________________________________________" Foreground="White" FontSize="10"/>
+          
+
+ 
+            <ListView x:Name="serieListView"
+                  Height="410"
+                  Margin="0 5 0 0" Background="#FF323232"
+                      MouseDoubleClick="SerieListView_MouseDoubleClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--Add Series-->             
+
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+
+                            <StackPanel Grid.Row="0" >
+                                <TextBlock Text="{Binding SerieName}" FontSize="20"
+                                   FontWeight="Bold"
+                                    Foreground="Red"
+                                    />
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock FontSize="15" 
+                                           Foreground="White">Seasson:</TextBlock>
+                                <TextBlock  Text="{Binding SerieSeasson}" FontSize="15"
+                                            FontWeight="Bold"
+                                            Margin="10,0,10,0"
+                                            Foreground="White"/>
+                                <TextBlock FontSize="15" 
+                                           Foreground="White">Epside:</TextBlock>
+                                <TextBlock  Text="{Binding SerieEpisode}" FontSize="15"
+                                            FontWeight="Bold"
+                                            Margin="10,0,0,10"
+                                            Foreground="White"/>
+                            </StackPanel>
+                        </Grid>
+
+
+                        
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackPanel>
+
+
+
+
+    </Border>
+
 </Window>

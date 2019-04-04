@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WifeFlixUI.Models;
+using WifeFlixUI.ViewModels;
+using WifeFlixUI.Views;
 
 namespace WifeFlixUI
 {
@@ -23,6 +26,74 @@ namespace WifeFlixUI
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new SerieViewModel();
+
+
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+
+            var sl = new SerieViewModel();
+
+            serieListView.ItemsSource = sl.serieList;
+
+
+        }
+
+        private void CreateNewSerieBtn_Click(object sender, RoutedEventArgs e)
+        {
+            bool isAddResult = false;
+            var serie = new SerieViewModel();
+            
+
+
+            if (AddSerieBox.Text == "")
+            {
+
+            }
+            else
+            {
+                serie.AddSerie(AddSerieBox.Text, out isAddResult);
+                if (isAddResult == true)
+                {
+                    serie.AddSerie(AddSerieBox.Text, out isAddResult);
+                    MessageBox.Show($"Serie : {AddSerieBox.Text} was added!");
+                    AddSerieBox.Text = "";
+
+                    var sl = new SerieViewModel();
+                    serieListView.ItemsSource = sl.serieList;
+
+                }
+                else
+                {
+                    MessageBox.Show($"Serie : {AddSerieBox.Text} already Exist!");
+                    AddSerieBox.Text = "";
+                }
+
+            }
+
+
+
+
+
+        }
+
+
+        private void SerieListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Serie selectedSerie = (Serie)serieListView.SelectedItem;
+
+            UpdateSerieWindow uw = new UpdateSerieWindow(selectedSerie);
+            Application.Current.MainWindow = uw;
+            uw.ShowDialog();
+
+
+            var sl = new SerieViewModel();
+            this.serieListView.ItemsSource = sl.serieList;
+
         }
     }
 }

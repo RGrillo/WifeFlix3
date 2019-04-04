@@ -1,0 +1,68 @@
+﻿<Window x:Class="WifeFlixUI.Views.UpdateSerieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WifeFlixUI.Views"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="WifeFlix" Height="250" Width="324.957" WindowStyle="ToolWindow" Background="#FF232121">
+    <Border Padding="10">
+        <StackPanel>
+            <TextBlock Text="WIFEFLIX / EDIT SERIE" Foreground="#FFF70000" FontWeight="Bold" FontSize="24" TextAlignment="Center" Margin="0 , 0, 0,20"/>
+
+            <!--Add Series-->
+            <Grid Margin="0 , 0, 0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 , 0, 0,0">
+                    <TextBlock Text="Serie Name" Foreground="White" FontSize="8"/>
+                    <TextBox x:Name="serieNameTextBox" Foreground="Black" FontSize="14"/>
+                </StackPanel>
+            </Grid>
+
+            <!--Add Series-->
+            <Grid Margin="0 , 0, 0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="61*"/>
+                    <ColumnDefinition Width="87*"/>
+                    <ColumnDefinition Width="149*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 , 0, 3,0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <TextBlock Text="Seasson" Foreground="White" FontSize="20"/>
+                    <xctk:IntegerUpDown x:Name="seassonTextBox" Minimum="1" DefaultValue="1" Margin="3" Width="40" FontSize="15"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Margin="3 , 0, 0,0" Orientation="Horizontal">
+                    <TextBlock Text="Episode" Foreground="White" FontSize="20"/>
+                    <xctk:IntegerUpDown x:Name="episodeTextBox" Minimum="1" DefaultValue="1" Margin="3" Width="40" FontSize="15" />
+                </StackPanel>
+            </Grid>
+
+
+            <!--Add Series-->
+            <Grid Margin="0 , 0, 0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="0 , 0, 3,0">
+                    <Button x:Name="UpdateSerieBtn" Content="Update Serie" Click="UpdateSerieBtn_Click"  />
+                </StackPanel>
+
+                <StackPanel Margin="3 , 0, 0,0" Grid.Column="1">
+                    <Button Name="DeleteSerieBtn" Content="Delete Serie" Click="DeleteSerieBtn_Click"/>
+                </StackPanel>
+
+                <TextBox x:Name="serieIdTextBox" Foreground="Black" FontSize="14" Visibility="Hidden"/>
+            </Grid>
+
+        </StackPanel>
+    </Border>
+
+</Window>
