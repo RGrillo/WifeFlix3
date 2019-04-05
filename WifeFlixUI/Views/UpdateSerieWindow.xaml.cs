@@ -63,8 +63,6 @@ namespace WifeFlixUI.Views
             serie.SerieEpisode = Convert.ToInt32(episodeTextBox.Text);
             serie.SerieId = serieIdTextBox.Text;
 
-
-
             var serieVM = new SerieViewModel();
             serieVM.UpdateSerie(serie,out isUpdatedResult);
 
@@ -72,9 +70,7 @@ namespace WifeFlixUI.Views
             {
                 this.Close();
 
-                MessageBox.Show("Serie " + name + " Updated");
-
-                
+                //MessageBox.Show("Serie " + name + " Updated");                
             }
 
         }
@@ -91,12 +87,11 @@ namespace WifeFlixUI.Views
             svm.DeleteSerie(id, out isUpdatedResult);
 
 
-
             if (isUpdatedResult == true)
             {
                 this.Close();
 
-                MessageBox.Show("Serie " + name + " Deleted!");
+                //MessageBox.Show("Serie " + name + " Deleted!");
  
 
             }

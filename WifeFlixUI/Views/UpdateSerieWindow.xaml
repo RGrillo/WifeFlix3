@@ -32,13 +32,13 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Column="0" Margin="0 , 0, 3,0" Grid.ColumnSpan="2" Orientation="Horizontal">
-                    <TextBlock Text="Seasson" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="Season" Foreground="White" FontSize="20"/>
                     <xctk:IntegerUpDown x:Name="seassonTextBox" Minimum="1" DefaultValue="1" Margin="3" Width="40" FontSize="15"/>
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="2" Margin="3 , 0, 0,0" Orientation="Horizontal">
-                    <TextBlock Text="Episode" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="Epside" Foreground="White" FontSize="20"/>
                     <xctk:IntegerUpDown x:Name="episodeTextBox" Minimum="1" DefaultValue="1" Margin="3" Width="40" FontSize="15" />
                 </StackPanel>
             </Grid>

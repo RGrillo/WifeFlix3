@@ -28,26 +28,19 @@ namespace WifeFlixUI
             InitializeComponent();
             DataContext = new SerieViewModel();
 
-
-
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-
             var sl = new SerieViewModel();
 
-            serieListView.ItemsSource = sl.serieList;
-
-
+            serieListView.ItemsSource = (sl.serieList).OrderBy(s=> s.SerieName).ToList();
         }
 
         private void CreateNewSerieBtn_Click(object sender, RoutedEventArgs e)
         {
             bool isAddResult = false;
-            var serie = new SerieViewModel();
-            
+            var serie = new SerieViewModel();            
 
 
             if (AddSerieBox.Text == "")
@@ -60,11 +53,11 @@ namespace WifeFlixUI
                 if (isAddResult == true)
                 {
                     serie.AddSerie(AddSerieBox.Text, out isAddResult);
-                    MessageBox.Show($"Serie : {AddSerieBox.Text} was added!");
+                    //MessageBox.Show($"Serie : {AddSerieBox.Text} was added!");
                     AddSerieBox.Text = "";
 
                     var sl = new SerieViewModel();
-                    serieListView.ItemsSource = sl.serieList;
+                    serieListView.ItemsSource = (sl.serieList).OrderBy(s => s.SerieName).ToList();
 
                 }
                 else
@@ -74,10 +67,6 @@ namespace WifeFlixUI
                 }
 
             }
-
-
-
-
 
         }
 
@@ -92,7 +81,7 @@ namespace WifeFlixUI
 
 
             var sl = new SerieViewModel();
-            this.serieListView.ItemsSource = sl.serieList;
+            this.serieListView.ItemsSource = (sl.serieList).OrderBy(s => s.SerieName).ToList();
 
         }
     }
